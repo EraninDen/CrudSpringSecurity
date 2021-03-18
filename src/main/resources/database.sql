@@ -6,10 +6,7 @@ create table if not exists userss(
                                      first_name varchar(50) not null,
                                      last_name varchar(50) not null);
 
-insert into roless values (1, 'ROLE_USER');
-insert into roless values (2, 'ROLE_ADMIN');
-insert into userss_roless values (1, 1);
-insert into userss_roless values (2, 2);
+
 
 #Table: roless
 create table if not exists roless(
