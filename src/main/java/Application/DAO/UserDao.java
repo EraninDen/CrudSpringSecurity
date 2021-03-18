@@ -1,18 +1,20 @@
 package Application.DAO;
 
-import Application.Model.User;
+import Application.Model.MyUser;
 
 import java.util.List;
 
 public interface UserDao {
 
-    public User findById(Long id);
+    public MyUser findById(Long id);
 
-    public List<User> findAll();
+    public MyUser findByName(String username);
 
-    public User saveUser(User user);
+    public List<MyUser> findAll();
+
+    public MyUser saveUser(MyUser myUser);
 
     public void deleteById(Long id);
 
-    public User update(User user);
+    public MyUser update(MyUser myUser);
 }

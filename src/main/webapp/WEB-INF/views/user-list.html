@@ -5,30 +5,49 @@
     <title>Users</title>
 </head>
 <body>
+
+<h2> ADMIN <span th:text="${username}"></span></h2>
+
 <div th:switch="${users}">
-    <h2 th:case="null">No users found!</h2>
+    <h2 th:case="null">No myUsers found!</h2>
     <div th:case="*">
         <h2>Users</h2>
         <table>
             <thead>
             <tr>
                 <th>Id</th>
+                <th>username</th>
+                <th>Password</th>
                 <th>First name</th>
                 <th>Last name</th>
+                <th>Role</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="user : ${users}">
-                <td th:text="${user.id}"></td>
-                <td th:text="${user.firstName}"></td>
-                <td th:text="${user.lastName}"></td>
-                <td><a th:href="@{user-update/{id}(id=${user.id})}">Edit</a></td>
-                <td><a th:href="@{user-delete/{id}(id=${user.id})}">Delete</a></td>
+            <tr th:each="myUser : ${users}">
+                <td th:text="${myUser.id}"></td>
+                <td th:text="${myUser.username}"></td>
+                <td th:text="${myUser.password}"></td>
+                <td th:text="${myUser.firstName}"></td>
+                <td th:text="${myUser.lastName}"></td>
+                <td th:text="${myUser.getRoleSetString()}"></td>
+
+
+                <td><a th:href="@{/admin/user-update/{id}(id=${myUser.id})}">Edit</a></td>
+                <td><a th:href="@{/admin/user-delete/{id}(id=${myUser.id})}">Delete</a></td>
             </tr>
+
+
             </tbody>
         </table>
     </div>
-    <p><a href="/user-create">Create user</a></p>
+    <p><a href="/admin/user-create">Create User</a></p>
+
 </div>
+
+<form action="/logout" method="POST">
+    <button>logout</button>
+</form>
+
 </body>
 </html>

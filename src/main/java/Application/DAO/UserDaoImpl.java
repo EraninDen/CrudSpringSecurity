@@ -1,6 +1,7 @@
 package Application.DAO;
 
-import Application.Model.User;
+import Application.Model.MyUser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,32 +17,40 @@ public class UserDaoImpl implements UserDao{
     }
 
     @PersistenceContext
+    @Autowired
     private EntityManager entityManager;
 
     @Override
-    public User findById(Long id) {
-        return entityManager.find(User.class,id);
+    public MyUser findById(Long id) {
+        return entityManager.find(MyUser.class,id);
     }
 
     @Override
-    public List<User> findAll() {
-        return entityManager.createQuery("select u from User u", User.class).getResultList();
+    public MyUser findByName(String username) {
+        return entityManager.createQuery("select u from MyUser u where u.username = :username", MyUser.class)
+                .setParameter("username", username).getSingleResult();
+    }
+
+
+    @Override
+    public List<MyUser> findAll() {
+        return entityManager.createQuery("select u from MyUser u", MyUser.class).getResultList();
     }
 
     @Override
-    public User saveUser(User user) {
-        entityManager.persist(user);
-        return user;
+    public MyUser saveUser(MyUser myUser) {
+        entityManager.persist(myUser);
+        return myUser;
     }
 
     @Override
     public void deleteById(Long id) {
-        entityManager.createQuery("delete from User u where u.id=:id").setParameter("id",id).executeUpdate();
+        entityManager.createQuery("delete from MyUser u where u.id=:id").setParameter("id",id).executeUpdate();
     }
 
     @Override
-    public User update(User user) {
-        final User updated = entityManager.merge(user);
+    public MyUser update(MyUser myUser) {
+        final MyUser updated = entityManager.merge(myUser);
         entityManager.flush();
         return updated;
     }

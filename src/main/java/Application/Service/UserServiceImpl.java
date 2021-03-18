@@ -1,7 +1,7 @@
 package Application.Service;
 
 import Application.DAO.UserDao;
-import Application.Model.User;
+import Application.Model.MyUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,16 +19,21 @@ public class UserServiceImpl implements UserService {
     }
 
 
-    public User findById(Long id){
+    public MyUser findById(Long id){
         return userDao.findById(id);
     }
 
-    public List<User> findAll(){
+    @Override
+    public MyUser findByName(String username) {
+        return userDao.findByName(username);
+    }
+
+    public List<MyUser> findAll(){
         return userDao.findAll();
     }
 
-    public User saveUser(User user){
-        return userDao.saveUser(user);
+    public MyUser saveUser(MyUser myUser){
+        return userDao.saveUser(myUser);
     }
 
     public void deleteById(Long id){
@@ -36,7 +41,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User update(User user) {
-        return userDao.update(user);
+    public MyUser update(MyUser myUser) {
+        return userDao.update(myUser);
     }
 }
