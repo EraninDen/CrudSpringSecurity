@@ -1,6 +1,6 @@
-package Application.DAO;
+package application.dao;
 
-import Application.Model.MyUser;
+import application.model.MyUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

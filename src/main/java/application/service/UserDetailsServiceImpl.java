@@ -1,9 +1,9 @@
-package Application.Service;
+package application.service;
 
-import Application.DAO.UserDao;
+import application.dao.UserDao;
 
-import Application.Model.MyUser;
-import Application.Model.Role;
+import application.model.MyUser;
+import application.model.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 

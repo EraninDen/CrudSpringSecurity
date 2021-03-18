@@ -1,23 +1,18 @@
-package Application.Controller;
+package application.controller;
 
-import Application.Model.MyUser;
-import Application.Model.Role;
-import Application.Service.RoleService;
-import Application.Service.UserService;
+import application.model.MyUser;
+import application.service.RoleService;
+import application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.security.Principal;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 public class UserController {

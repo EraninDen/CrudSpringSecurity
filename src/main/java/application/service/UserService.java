@@ -1,10 +1,10 @@
-package Application.DAO;
+package application.service;
 
-import Application.Model.MyUser;
+import application.model.MyUser;
 
 import java.util.List;
 
-public interface UserDao {
+public interface UserService {
 
     public MyUser findById(Long id);
 
@@ -16,5 +16,5 @@ public interface UserDao {
 
     public void deleteById(Long id);
 
-    public MyUser update(MyUser myUser);
+    public MyUser update(MyUser MyUser);
 }

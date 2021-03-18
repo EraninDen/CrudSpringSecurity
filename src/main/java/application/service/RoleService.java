@@ -1,15 +1,11 @@
-package Application.DAO;
+package application.service;
 
-import Application.Model.Role;
-
+import application.model.Role;
 
 import java.util.List;
 
-public interface RoleDao {
-
+public interface RoleService {
     public Role findById(Long id);
-
-    public Role findByName(String role);
 
     public List<Role> findAll();
 

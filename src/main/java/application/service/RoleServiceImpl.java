@@ -1,7 +1,7 @@
-package Application.Service;
+package application.service;
 
-import Application.DAO.RoleDao;
-import Application.Model.Role;
+import application.dao.RoleDao;
+import application.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

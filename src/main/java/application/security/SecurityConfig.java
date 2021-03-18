@@ -1,6 +1,6 @@
-package Application.security;
+package application.security;
 
-import Application.Service.UserDetailsServiceImpl;
+import application.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
